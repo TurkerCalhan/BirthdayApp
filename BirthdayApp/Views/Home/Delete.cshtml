@@ -1,0 +1,51 @@
+﻿@model BirthdayApp.Models.UserResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h4>Are you sure ?</h4>
+
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Name</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Email</dt>
+        <dd>@Model.Email</dd>
+
+        <dt>Phone</dt>
+        <dd>@Model.Phone</dd>
+
+        <dt>Will Attend ?</dt>
+        <dd>
+            @if (Model.WillAttend == true)
+            {
+                <p>Yes, I will come</p>
+            }
+            else
+            {
+                <p>No, I will not come</p>
+            }
+
+        </dd>
+    </dl>
+    @using (Html.BeginForm("Delete", "Home", new { @id = Model.Id }))
+    {
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    }
+</body>
+</html>

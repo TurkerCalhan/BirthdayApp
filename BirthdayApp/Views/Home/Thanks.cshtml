@@ -1,0 +1,40 @@
+﻿@model BirthdayApp.Models.UserResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #F1F1F1;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h2>Thanks,@Model.Name</h2>
+
+        <div class="lead">
+
+            @if (Model.WillAttend == true)
+            {
+                <p>We are Happy.</p>
+            }
+            else
+            {
+                <p>We are sorry.</p>
+            }
+        </div>
+
+        @Html.ActionLink("View User","ListResponse")
+
+    </div>
+</body>
+</html>
